@@ -4,8 +4,8 @@ const initialState = {
   user: JSON.parse(localStorage.getItem("userInfo")) || null,
 };
 
-export const chatSlice = createSlice({
-  name: "user",
+export const userSlice = createSlice({
+  name: "auth",
   initialState,
   reducers: {
     setUser: (state, action) => {
@@ -18,7 +18,7 @@ export const chatSlice = createSlice({
 });
 
 // Export the generated actions
-export const { setUser } = chatSlice.actions;
+export const { setUser } = userSlice.actions;
 
 // Export the reducer
-export default chatSlice.reducer;
+export default userSlice.reducer;
