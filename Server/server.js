@@ -4,11 +4,12 @@ import mongoose from "mongoose";
 import cors from "cors";
 import ExpressError from "./utils/ExpressError.js";
 
+import userRoutes from "./routes/userRoutes.js";
+
 dotenv.config();
 
 const PORT = process.env.PORT || 5001;
-const MONGO_URL =
-  process.env.MONGO_URL || "mongodb://127.0.0.1:27017/BlitzTalk";
+const MONGO_URL = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/EduTrack";
 
 const app = express();
 app.use(express.json());
@@ -30,6 +31,8 @@ main()
 app.get("/", (req, res) => {
   res.send("Welcome Home");
 });
+
+app.use("/api/user", userRoutes);
 
 app.all("*", (req, res, next) => {
   next(new ExpressError(404, "Page not found!"));
