@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import ExpressError from "./utils/ExpressError.js";
 
+import { Sales } from "./Data/Sales.js";
 import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config();
@@ -33,6 +34,11 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/user", userRoutes);
+
+//add loggedIn middleware
+app.get("/api/sales", (req, res) => {
+  res.status(200).json(Sales);
+});
 
 app.all("*", (req, res, next) => {
   next(new ExpressError(404, "Page not found!"));
