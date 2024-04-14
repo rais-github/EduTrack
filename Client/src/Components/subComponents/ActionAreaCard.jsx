@@ -1,12 +1,36 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
-export default function ActionAreaCard({ sales = { continent: "asia" } }) {
-  const image = `https://source.unsplash.com/700x350/?${sales.continent}`;
+const continents = [
+  "asia",
+  "africa",
+  "northamerica",
+  "southamerica",
+  "europe",
+  "australia",
+  "antarctica",
+];
+
+export default function ActionAreaCard() {
+  const [currentContinentIndex, setCurrentContinentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentContinentIndex(
+        (prevIndex) => (prevIndex + 1) % continents.length
+      );
+    }, 7000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentContinent = continents[currentContinentIndex];
+  const image = `https://source.unsplash.com/700x350/?${currentContinent}`;
+
   return (
     <Card>
       <CardActionArea>
@@ -14,7 +38,7 @@ export default function ActionAreaCard({ sales = { continent: "asia" } }) {
           component="img"
           height="140"
           image={image}
-          alt={sales.continent}
+          alt={currentContinent}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

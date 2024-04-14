@@ -30,7 +30,6 @@ const ContinentPieChart = () => {
   }, []);
 
   useEffect(() => {
-    // Create pie chart when continentData changes
     if (continentData.length > 0) {
       drawPieChart();
     }
@@ -56,16 +55,19 @@ const ContinentPieChart = () => {
 
     const color = d3.scaleOrdinal(d3.schemeCategory10);
 
-    const pie = d3.pie().value((d) => d.sale_amount);
-
+    const pie = d3.pie().value((d) => d.sales);
+    pie.padAngle(0.01);
+    pie.sort(null);
     const arc = d3
       .arc()
       .outerRadius(radius - 10)
       .innerRadius(0);
 
+    const salesData = getSalesData();
+
     const arcs = chart
       .selectAll("arc")
-      .data(pie(continentData))
+      .data(pie(salesData))
       .enter()
       .append("g");
 
@@ -79,37 +81,78 @@ const ContinentPieChart = () => {
         d3.select(this)
           .transition()
           .duration("50")
-          .attr("opacity", ".85")
-          .attr("transform", "scale(1.1)");
+          .attr("opacity", ".80")
+          .attr("transform", "scale(1.05)");
+
+        // Show tooltip
+        const tooltip = d3.select("#tooltip");
+        tooltip.transition().duration(200).style("opacity", 1);
+        tooltip
+          .html(
+            `<strong>${d["target"]["__data__"]["data"]["continent"]}</strong><br/>Sales: ${d["target"]["__data__"]["data"]["sales"]}`
+          )
+          .style("left", d3.event.pageX + "px")
+          .style("top", d3.event.pageY + "px");
       })
+
       .on("mouseout", function (d, i) {
         d3.select(this)
           .transition()
           .duration("50")
           .attr("opacity", "1")
           .attr("transform", "scale(1)");
+
+        // Hide tooltip
+        d3.select("#tooltip").transition().duration(200).style("opacity", 0);
       });
 
-    // arcs
-    //   .append("text")
-    //   .attr("transform", (d) => `translate(${arc.centroid(d)})`)
-    //   .attr("text-anchor", "middle")
-    //   .text((d) => d.data.continent)
-    //   .attr("fill", "white")
-    //   .style("font-size", "12px")
-    //   .style("pointer-events", "none");
-
-    // Add tooltips
-    // arcs.append("title").text((d) => d.data.continent);
+    // Add tooltip
+    d3.select("#pie-chart-container")
+      .append("div")
+      .attr("class", "tooltip")
+      .attr("id", "tooltip")
+      .style("opacity", 0);
 
     // Add title
-    svg
-      .append("text")
-      .attr("x", width / 2)
-      .attr("y", height + 20)
-      .attr("text-anchor", "middle")
-      .style("font-size", "20px")
-      .text("Continent wise course sales");
+  };
+
+  const getSalesData = () => {
+    return [
+      {
+        continent: "Africa",
+        sales: continentData[continentData.length - 1]?.totalSales_Africa || 0,
+      },
+      {
+        continent: "Asia",
+        sales: continentData[continentData.length - 1]?.totalSales_Asia || 0,
+      },
+      {
+        continent: "Europe",
+        sales: continentData[continentData.length - 1]?.totalSales_Europe || 0,
+      },
+      {
+        continent: "North America",
+        sales:
+          continentData[continentData.length - 1]?.totalSales_North_America ||
+          0,
+      },
+      {
+        continent: "South America",
+        sales:
+          continentData[continentData.length - 1]?.totalSales_South_America ||
+          0,
+      },
+      {
+        continent: "Antarctica",
+        sales:
+          continentData[continentData.length - 1]?.totalSales_Antarctica || 0,
+      },
+      {
+        continent: "Australia",
+        sales:
+          continentData[continentData.length - 1]?.totalSales_Australia || 0,
+      },
+    ];
   };
 
   return (
