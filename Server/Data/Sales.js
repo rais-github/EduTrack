@@ -8,6 +8,16 @@ let totalSales_Australia = 0;
 let totalSales_Europe = 0;
 let totalSales_North_America = 0;
 let totalSales_South_America = 0;
+let totalSales_ArtificialIntelligence = 0;
+let totalSales_Web3 = 0;
+let totalSales_DataScience = 0;
+let totalSales_CyberSecurity = 0;
+let totalSales_CloudComputing = 0;
+let totalSales_IoT = 0;
+let totalSales_Analytics = 0;
+let totalSales_Graphics = 0;
+let totalSales_WebDevelopment = 0;
+let totalSales_AppDevelopment = 0;
 export const Sales = [
   {
     id: uuidv4(),
@@ -212,6 +222,45 @@ Sales.forEach((sale, index) => {
       break;
   }
 });
+
+Sales.forEach((sale) => {
+  const course = Course.find((course) => course.id === sale.course_id);
+  if (course) {
+    switch (course.courseTopic) {
+      case "Aritificial Intelligence":
+        totalSales_ArtificialIntelligence += sale.sale_amount;
+        break;
+      case "Web3":
+        totalSales_Web3 += sale.sale_amount;
+        break;
+      case "Data science":
+        totalSales_DataScience += sale.sale_amount;
+        break;
+      case "Cyber Security":
+        totalSales_CyberSecurity += sale.sale_amount;
+        break;
+      case "Cloud Computing":
+        totalSales_CloudComputing += sale.sale_amount;
+        break;
+      case "IoT":
+        totalSales_IoT += sale.sale_amount;
+        break;
+      case "Analytics":
+        totalSales_Analytics += sale.sale_amount;
+        break;
+      case "Graphics":
+        totalSales_Graphics += sale.sale_amount;
+        break;
+      case "Web Development":
+        totalSales_WebDevelopment += sale.sale_amount;
+        break;
+      case "App Development":
+        totalSales_AppDevelopment += sale.sale_amount;
+        break;
+    }
+  }
+});
+
 Sales.push({
   totalSales,
   totalSales_Africa,
@@ -221,4 +270,14 @@ Sales.push({
   totalSales_Europe,
   totalSales_North_America,
   totalSales_South_America,
+  totalSales_ArtificialIntelligence,
+  totalSales_Web3,
+  totalSales_DataScience,
+  totalSales_CyberSecurity,
+  totalSales_CloudComputing,
+  totalSales_IoT,
+  totalSales_Analytics,
+  totalSales_Graphics,
+  totalSales_WebDevelopment,
+  totalSales_AppDevelopment,
 });

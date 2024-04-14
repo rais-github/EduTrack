@@ -117,14 +117,14 @@ export const Course = [
     courseName: "Artificial Intelligence",
     courseCode: "CSC112",
     courseMode: "Online",
-    courseTopic: "AI/ML",
+    courseTopic: "Aritificial Intelligence",
   },
   {
     id: uuidv4(),
     courseName: "Machine Learning",
     courseCode: "CSC113",
     courseMode: "Online",
-    courseTopic: "AI/ML",
+    courseTopic: "Aritificial Intelligence",
   },
   {
     id: uuidv4(),
@@ -152,14 +152,14 @@ export const Course = [
     courseName: "Blockchain",
     courseCode: "CSC116",
     courseMode: "Online",
-    courseTopic: "Web 3.0",
+    courseTopic: "Web3",
   },
   {
     id: uuidv4(),
     courseName: "Solidity",
     courseCode: "CSC123",
     courseMode: "Online",
-    courseTopic: "Web 3.0",
+    courseTopic: "Web3",
   },
   {
     id: uuidv4(),
@@ -194,25 +194,25 @@ export const Course = [
     courseName: "Computer Vision",
     courseCode: "CSC121",
     courseMode: "Online",
-    courseTopic: "AI/ML",
+    courseTopic: "Aritificial Intelligence",
   },
   {
     id: uuidv4(),
     courseName: "Natural Language Processing",
     courseCode: "CSC122",
     courseMode: "Online",
-    courseTopic: "AI/ML",
+    courseTopic: "Aritificial Intelligence",
   },
 ];
 
 //Types of topics in the course
-// AI/ML
+// Aritificial Intelligence
 // Web Development
 // App Development
 // Cloud Computing
 // Cyber Security
 // Data science
 // IoT
-// Web 3.0
+// Web 3
 // Analytics
 // Graphics

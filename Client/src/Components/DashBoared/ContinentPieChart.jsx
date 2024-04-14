@@ -38,7 +38,7 @@ const ContinentPieChart = () => {
   const drawPieChart = () => {
     // Clear existing SVG
     d3.select("#pie-chart-container").select("svg").remove();
-
+    const { totalSales } = continentData[continentData.length - 1];
     const width = 510;
     const height = 510;
     const radius = Math.min(width, height) / 2;
@@ -89,7 +89,18 @@ const ContinentPieChart = () => {
         tooltip.transition().duration(200).style("opacity", 1);
         tooltip
           .html(
-            `<strong>${d["target"]["__data__"]["data"]["continent"]}</strong><br/>Sales: ${d["target"]["__data__"]["data"]["sales"]}`
+            `<strong>${
+              d["target"]["__data__"]["data"]["continent"]
+            }</strong><br/>Sales: ${d["target"]["__data__"]["data"]["sales"]}
+          ${
+            d["target"]["__data__"]["data"]["sales"] > 0
+              ? `(${(
+                  (d["target"]["__data__"]["data"]["sales"] / totalSales) *
+                  100
+                ).toFixed(2)}%)`
+              : ""
+          }
+          `
           )
           .style("left", d3.event.pageX + "px")
           .style("top", d3.event.pageY + "px");

@@ -42,7 +42,7 @@ const DashBoard = () => {
               <>
                 <Grid item xs={12} md={6}>
                   <Box width="100%">
-                    <ActionAreaCard />
+                    <ActionAreaCard usedAs={"continent"} />
                   </Box>
                 </Grid>
                 <Grid item xs={13} md={6}>
@@ -67,12 +67,7 @@ const DashBoard = () => {
     </>
   );
 
-  return (
-    <Box width="100%">
-      {user ? <PrimarySearchAppBar /> : <span>Not Logged In</span>}
-      {renderFeature()}
-    </Box>
-  );
+  return <Box width="100%">{renderFeature()}</Box>;
 };
 
 export default DashBoard;
