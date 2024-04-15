@@ -5,6 +5,7 @@ import cors from "cors";
 import ExpressError from "./utils/ExpressError.js";
 
 import { Sales } from "./Data/Sales.js";
+import { Student } from "./Data/Student.js";
 import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config();
@@ -38,6 +39,10 @@ app.use("/api/user", userRoutes);
 //add loggedIn middleware
 app.get("/api/sales", (req, res) => {
   res.status(200).json(Sales);
+});
+
+app.get("/api/students", (req, res) => {
+  res.status(200).json(Student);
 });
 
 app.all("*", (req, res, next) => {

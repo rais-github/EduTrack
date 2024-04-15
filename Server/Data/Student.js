@@ -1,0 +1,323 @@
+import { Course } from "./Course.js";
+export const Student = [
+  {
+    id: 1,
+    firstName: "Alice",
+    lastName: "Smith",
+    age: 20,
+    contact_info: {
+      visibility: "Instructor",
+      email: "alice.smith@email.com",
+      phone: "555-123-4567",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[25].courseTopic, progress: 0.6 },
+      { Subject: Course[28].courseTopic, progress: 0.8 },
+    ],
+  },
+  {
+    id: 2,
+    firstName: "Bob",
+    lastName: "Johnson",
+    age: 21,
+    contact_info: {
+      visibility: "Instructor",
+      email: "bob.johnson@email.com",
+      phone: "555-987-6543",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[20].courseTopic, progress: 0.6 },
+      { Subject: Course[21].courseTopic, progress: 0.7 },
+    ],
+  },
+  {
+    id: 3,
+    firstName: "Charlie",
+    lastName: "Brown",
+    age: 22,
+    contact_info: {
+      visibility: "Instructor",
+      email: "charlie.brown@email.com",
+      phone: "555-456-7890",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[13].courseTopic, progress: 0.5 },
+      { Subject: Course[14].courseTopic, progress: 0.6 },
+    ],
+  },
+  {
+    id: 4,
+    firstName: "David",
+    lastName: "Davis",
+    age: 23,
+    contact_info: {
+      visibility: "Instructor",
+      email: "david.davis@email.com",
+      phone: "555-789-1234",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[12].courseTopic, progress: 0.3 },
+      { Subject: Course[13].courseTopic, progress: 0.4 },
+    ],
+  },
+  {
+    id: 5,
+    firstName: "Eve",
+    lastName: "Johnson",
+    age: 24,
+    contact_info: {
+      visibility: "Instructor",
+      email: "eve.johnson@email.com",
+      phone: "555-234-5678",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[10].courseTopic, progress: 0.6 },
+      { Subject: Course[11].courseTopic, progress: 0.7 },
+    ],
+  },
+  {
+    id: 6,
+    firstName: "Frank",
+    lastName: "Smith",
+    age: 25,
+    contact_info: {
+      visibility: "Instructor",
+      email: "frank.smith@email.com",
+      phone: "555-567-8901",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[8].courseTopic, progress: 1 },
+      { Subject: Course[9].courseTopic, progress: 0.2 },
+    ],
+  },
+  {
+    id: 7,
+    firstName: "Grace",
+    lastName: "Davis",
+    age: 26,
+    contact_info: {
+      visibility: "Instructor",
+      email: "grace.davis@email.com",
+      phone: "555-901-2345",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[6].courseTopic, progress: 0.9 },
+      { Subject: Course[7].courseTopic, progress: 1 },
+    ],
+  },
+  {
+    id: 8,
+    firstName: "Henry",
+    lastName: "Brown",
+    age: 27,
+    contact_info: {
+      visibility: "Instructor",
+      email: "henry.brown@email.com",
+      phone: "555-345-6789",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[4].courseTopic, progress: 0.7 },
+      { Subject: Course[5].courseTopic, progress: 0.8 },
+    ],
+  },
+  {
+    id: 9,
+    firstName: "Isabella",
+    lastName: "Johnson",
+    age: 28,
+    contact_info: {
+      visibility: "Instructor",
+      email: "isabella.johnson@email.com",
+      phone: "555-678-9012",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[2].courseTopic, progress: 0.6 },
+      { Subject: Course[3].courseTopic, progress: 0.7 },
+    ],
+  },
+  {
+    id: 10,
+    firstName: "Jack",
+    lastName: "Smith",
+    age: 29,
+    contact_info: {
+      visibility: "Instructor",
+      email: "jack.smith@email.com",
+      phone: "555-012-3456",
+    },
+    coursesEnrolled: [
+      { Subject: Course[0].courseTopic, progress: 0.5 },
+      { Subject: Course[1].courseTopic, progress: 0.6 },
+    ],
+    enrollment_date: new Date("2024-03-15"),
+  },
+  {
+    id: 11,
+    firstName: "Kate",
+    lastName: "Johnson",
+    age: 18,
+    contact_info: {
+      visibility: "Instructor",
+      email: "kate.johnson@email.com",
+      phone: "555-111-2222",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[26].courseTopic, progress: 0.9 },
+      { Subject: Course[27].courseTopic, progress: 0.8 },
+    ],
+  },
+  {
+    id: 12,
+    firstName: "Liam",
+    lastName: "Smith",
+    age: 19,
+    contact_info: {
+      visibility: "Instructor",
+      email: "liam.smith@email.com",
+      phone: "555-222-3333",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[24].courseTopic, progress: 0.7 },
+      { Subject: Course[25].courseTopic, progress: 0.6 },
+    ],
+  },
+  {
+    id: 13,
+    firstName: "Mia",
+    lastName: "Johnson",
+    age: 20,
+    contact_info: {
+      visibility: "Instructor",
+      email: "mia.johnson@email.com",
+      phone: "555-333-4444",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[22].courseTopic, progress: 0.5 },
+      { Subject: Course[23].courseTopic, progress: 0.4 },
+    ],
+  },
+  {
+    id: 14,
+    firstName: "Noah",
+    lastName: "Smith",
+    age: 21,
+    contact_info: {
+      visibility: "Instructor",
+      email: "noah.smith@email.com",
+      phone: "555-444-5555",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[20].courseTopic, progress: 0.3 },
+      { Subject: Course[21].courseTopic, progress: 0.2 },
+    ],
+  },
+  {
+    id: 15,
+    firstName: "Olivia",
+    lastName: "Johnson",
+    age: 22,
+    contact_info: {
+      visibility: "Instructor",
+      email: "olivia.johnson@email.com",
+      phone: "555-555-6666",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[18].courseTopic, progress: 0.9 },
+      { Subject: Course[19].courseTopic, progress: 0.8 },
+    ],
+  },
+  {
+    id: 16,
+    firstName: "William",
+    lastName: "Smith",
+    age: 23,
+    contact_info: {
+      visibility: "Instructor",
+      email: "william.smith@email.com",
+      phone: "555-666-7777",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[16].courseTopic, progress: 0.7 },
+      { Subject: Course[17].courseTopic, progress: 0.6 },
+    ],
+  },
+  {
+    id: 17,
+    firstName: "Sophia",
+    lastName: "Johnson",
+    age: 24,
+    contact_info: {
+      visibility: "Instructor",
+      email: "sophia.johnson@email.com",
+      phone: "555-777-8888",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[14].courseTopic, progress: 0.5 },
+      { Subject: Course[15].courseTopic, progress: 0.4 },
+    ],
+  },
+  {
+    id: 18,
+    firstName: "James",
+    lastName: "Smith",
+    age: 25,
+    contact_info: {
+      visibility: "Instructor",
+      email: "james.smith@email.com",
+      phone: "555-888-9999",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[12].courseTopic, progress: 0.3 },
+      { Subject: Course[13].courseTopic, progress: 0.2 },
+    ],
+  },
+  {
+    id: 19,
+    firstName: "Ava",
+    lastName: "Johnson",
+    age: 26,
+    contact_info: {
+      visibility: "Instructor",
+      email: "ava.johnson@email.com",
+      phone: "555-999-0000",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[10].courseTopic, progress: 0.9 },
+      { Subject: Course[11].courseTopic, progress: 0.8 },
+    ],
+  },
+  {
+    id: 20,
+    firstName: "Logan",
+    lastName: "Smith",
+    age: 27,
+    contact_info: {
+      visibility: "Instructor",
+      email: "logan.smith@email.com",
+      phone: "555-000-1111",
+    },
+    enrollment_date: new Date("2024-03-15"),
+    coursesEnrolled: [
+      { Subject: Course[8].courseTopic, progress: 0.7 },
+      { Subject: Course[9].courseTopic, progress: 0.6 },
+    ],
+  },
+];

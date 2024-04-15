@@ -58,6 +58,38 @@ export const Course = [
   },
   {
     id: uuidv4(),
+    courseName: "Computer Organization",
+    courseCode: "CSC130",
+    courseMode: "Classroom",
+    courseTopic: "Computer Science",
+  },
+  {
+    id: uuidv4(),
+    courseName: "Digital Image Processing",
+    courseCode: "CSC131",
+    courseMode: "Classroom",
+    courseTopic: "Computer Science",
+  },
+  {
+    id: uuidv4(),
+    courseName: "Theory of Computation",
+    courseCode: "CSC132",
+    courseMode: "Classroom",
+  },
+  {
+    id: uuidv4(),
+    courseName: "Compiler Design",
+    courseCode: "CSC133",
+    courseMode: "Classroom",
+  },
+  {
+    id: uuidv4(),
+    courseName: "Computer Graphics",
+    courseCode: "CSC134",
+    courseMode: "Classroom",
+  },
+  {
+    id: uuidv4(),
     courseName: "Web Development",
     courseCode: "CSC108",
     courseMode: "Online",
