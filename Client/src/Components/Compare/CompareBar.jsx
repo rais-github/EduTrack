@@ -15,8 +15,6 @@ const CompareBar = ({ compareData }) => {
     }
   }, [compareData, viewMode]);
 
-  const translate = (x, y) => `translate(${x},${y})`; // Define translate function
-
   const drawLineChart = () => {
     d3.select(chartRef.current).selectAll("*").remove();
 
@@ -30,7 +28,7 @@ const CompareBar = ({ compareData }) => {
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
-      .attr("transform", translate(margin.left, margin.top)); // Using translate function
+      .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
     const data =
       viewMode === "month" ? getSalesDataByMonth() : getSalesDataByYear();
@@ -43,7 +41,7 @@ const CompareBar = ({ compareData }) => {
 
     svg
       .append("g")
-      .attr("transform", translate(0, height)) // Using translate function
+      .attr("transform", `translate(0, ${height})`)
       .call(
         d3
           .axisBottom(x)
@@ -80,14 +78,14 @@ const CompareBar = ({ compareData }) => {
       .style("opacity", "0")
       .style("background-color", "white")
       .style("border", "solid 1px gray")
-      .style("width", "auto")
+      .style("width", "200px")
       .style("padding", "5px");
 
     const path = svg
       .append("path")
       .datum(data)
       .attr("fill", "none")
-      .attr("stroke", "none")
+      .attr("stroke", "steelblue")
       .attr("stroke-width", 2)
       .attr("d", line);
 
@@ -102,8 +100,8 @@ const CompareBar = ({ compareData }) => {
 
         tooltip.transition().duration(200).style("opacity", 0.9);
         tooltip
-          .html(`<strong>Sale Amount:</strong> $${hoveredData.cumulativeSales}`)
-          .style("left", event.pageX + 10 + "px")
+          .html(`Sale Amount: $${hoveredData.cumulativeSales}`)
+          .style("left", event.pageX + 1 + "px")
           .style("top", event.pageY - 20 + "px");
       })
       .on("mouseout", () => tooltip.style("opacity", 0));
@@ -111,28 +109,30 @@ const CompareBar = ({ compareData }) => {
 
   function isValidDate(dateString) {
     const regex = /^\d{4}-\d{2}-\d{2}$/; // Matches "YYYY-MM-DD"
-    console.log(dateString);
     return regex.test(dateString);
   }
 
   function getSalesDataByMonth() {
     const salesData = {};
     const today = new Date();
+    let idx = 0;
     compareData.forEach((sale) => {
-      if (isValidDate(sale.sale_date)) {
-        const date = sale.sale_date ? new Date(sale.sale_date) : new Date();
-        if (date <= today) {
-          const year = date.getFullYear();
-          const month = date.getMonth(); // (0-indexed)
-          const key = `${year}-${month}`;
+      if (idx++ < 34) {
+        if (isValidDate(sale.sale_date)) {
+          const date = sale.sale_date ? new Date(sale.sale_date) : new Date();
+          if (date <= today) {
+            const year = date.getFullYear();
+            const month = date.getMonth(); // (0-indexed)
+            const key = `${year}-${month}`;
 
-          if (!salesData[key]) {
-            salesData[key] = { date: date, cumulativeSales: 0 };
+            if (!salesData[key]) {
+              salesData[key] = { date: date, cumulativeSales: 0 };
+            }
+            salesData[key].cumulativeSales += sale.sale_amount;
           }
-          salesData[key].cumulativeSales += sale.sale_amount;
+        } else {
+          console.error("Invalid sale_date:", sale.sale_date);
         }
-      } else {
-        console.error("Invalid sale_date:", sale.sale_date);
       }
     });
 
@@ -166,7 +166,7 @@ const CompareBar = ({ compareData }) => {
         </Select>
       </Box>
       <Box id="line-chart-container">
-        <div className="tooltip" ref={tooltipRef}></div>
+        <Box className="tooltip" ref={tooltipRef} />
       </Box>
       <Box ref={chartRef}></Box>
       <ToastContainer />

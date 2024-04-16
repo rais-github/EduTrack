@@ -37,7 +37,7 @@ export default function StudentTable({ students }) {
 
   return (
     <div className="flex flex-wrap gap-7 justify-between items-center ">
-      <div className="p-4 w-full sm:w-auto">
+      <div className="flex justify-center items-center p-4 w-full sm:w-auto">
         {/* Pass the selected student to StudentList */}
         <StudentList selectedStudent={selectedStudent} />
       </div>
