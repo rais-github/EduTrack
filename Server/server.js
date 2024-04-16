@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import ExpressError from "./utils/ExpressError.js";
-
+import MongoStore from "connect-mongo";
 import { Sales } from "./Data/Sales.js";
 import { Student } from "./Data/Student.js";
 import userRoutes from "./routes/userRoutes.js";
@@ -11,7 +11,19 @@ import userRoutes from "./routes/userRoutes.js";
 dotenv.config();
 
 const PORT = process.env.PORT || 5001;
-const MONGO_URL = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/EduTrack";
+const MONGO_URL = "mongodb://127.0.0.1:27017/EduTrack";
+
+// const store = MongoStore.create({
+//   mongoUrl: MONGO_URL,
+//   crypto: {
+//     secret: "f-17vv",
+//   },
+//   touchAfter: 24 * 3600,
+// });
+
+// store.on("error", function () {
+//   console.log("ERROR_IN_MONGO_SESSION_STORE");
+// });
 
 const app = express();
 app.use(express.json());
