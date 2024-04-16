@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../features/user/userSlice";
 import {
   Button,
   FormControl,
@@ -21,7 +23,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const dispatch = useDispatch();
   const submitHandler = async () => {
     setLoading(true);
 
@@ -55,6 +57,7 @@ const Login = () => {
             : "bottom-right",
         });
         localStorage.setItem("userInfo", JSON.stringify(response.data));
+        dispatch(setUser(response.data));
         setLoading(false);
         setTimeout(() => navigate("/dashboard"), 1000);
       } else {

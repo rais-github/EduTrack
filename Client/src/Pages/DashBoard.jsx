@@ -1,11 +1,7 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Box, Grid, useMediaQuery } from "@mui/material";
 import { Typography } from "@mui/material";
-import {
-  PrimarySearchAppBar,
-  ActionAreaCard,
-  ContinentPieChart,
-} from "../Components";
+import { ActionAreaCard, ContinentPieChart } from "../Components";
 
 const DashBoard = () => {
   const user = useSelector((state) => state.auth.user);
@@ -27,40 +23,36 @@ const DashBoard = () => {
             justifyContent="center"
             alignContent={"center"}
           >
-            {isMobile ? (
-              <Grid item xs={12}>
-                <Box
-                  border="1px dotted black"
-                  width="100%"
-                  display={"flex"}
-                  justifyContent={"center"}
-                >
-                  <ContinentPieChart />
-                </Box>
-              </Grid>
-            ) : (
-              <>
-                <Grid item xs={12} md={6}>
-                  <Box width="100%">
-                    <ActionAreaCard usedAs={"continent"} />
-                  </Box>
-                </Grid>
-                <Grid item xs={13} md={6}>
+            <Grid item xs={12} md={6}>
+              <Box width="100%">
+                <ActionAreaCard usedAs={"continent"} />
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Box
+                width="100%"
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                flexDirection={"column"}
+              >
+                <Typography variant="h6" style={{ marginBottom: "1rem" }}>
+                  Continent Sales
+                </Typography>
+                {isMobile ? (
                   <Box
-                    width="100%"
-                    height={"100%"}
+                    width="80%"
+                    height="auto"
                     display={"flex"}
                     justifyContent={"center"}
-                    alignItems={"center"}
-                    // border={"1px solid black"}
-                    flexDirection={"column"}
                   >
                     <ContinentPieChart user={user} />
-                    <Typography variant="h6">Continent Sales</Typography>
                   </Box>
-                </Grid>
-              </>
-            )}
+                ) : (
+                  <ContinentPieChart user={user} />
+                )}
+              </Box>
+            </Grid>
           </Grid>
         </Box>
       )}

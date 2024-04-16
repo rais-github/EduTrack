@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Box } from "@mui/material";
-import { CompareDropCard, CompareBar } from "../index";
-import { toast, ToastContainer } from "react-toastify";
+import { Box, Container } from "@mui/material";
+import { CompareDropCard, CompareLineChart } from "../index";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
@@ -28,23 +28,30 @@ const Compare = () => {
   }, []);
 
   return (
-    <Box
-      display="flex"
-      flexWrap="wrap"
-      justifyContent="space-between"
-      gap={2}
-      width={"100%"}
-      height={"90vh"}
-      border={"5px solid black"}
-      overflow="hidden"
+    <Container
+      style={{ overflowX: "auto", background: "#f0f0f0", padding: "1rem" }}
     >
-      <Box marginInlineStart={1}>
-        <CompareDropCard compareData={compareData} />
+      <Box
+        display="flex"
+        flexDirection={{ xs: "column", sm: "row" }} // Change flex direction based on screen size
+        justifyContent="space-between"
+        width="100%"
+        minHeight="80vh"
+      >
+        <Box
+          flex="1 1 100%"
+          maxWidth={{ xs: "100%", sm: "30%" }} // Adjust max width based on screen size
+          marginBottom={{ xs: "1rem", sm: 0 }} // Add bottom margin for small screens only
+          minWidth="300px"
+          padding="0 1rem"
+        >
+          <CompareDropCard compareData={compareData} />
+        </Box>
+        <Box flex="1 1 100%" maxWidth="100%" minWidth="300px" padding="0 2rem">
+          <CompareLineChart compareData={compareData} />
+        </Box>
       </Box>
-      <Box display={"flex"} flex={1} border={"2px dotted red"}>
-        <CompareBar compareData={compareData} />
-      </Box>
-    </Box>
+    </Container>
   );
 };
 

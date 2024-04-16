@@ -10,6 +10,8 @@ import {
   Box,
   CircularProgress,
 } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../features/user/userSlice";
 import { Visibility, VisibilityOff, CloudUpload } from "@mui/icons-material";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
@@ -20,7 +22,7 @@ const Signup = () => {
   const [role, setRole] = useState(""); // State for storing selected role
   const handleClickShowPassword = () => setShowPassword(!showPassword);
   const history = useNavigate();
-
+  const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
@@ -85,6 +87,7 @@ const Signup = () => {
       });
 
       localStorage.setItem("userInfo", JSON.stringify(data));
+      dispatch(setUser(data));
       setPicLoading(false);
       history("/dashboard");
     } catch (error) {

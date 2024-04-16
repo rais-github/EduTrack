@@ -13,7 +13,8 @@ import CircularProgressWithLabel from "../subComponents/CircularProgressWithLabe
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import NumbersIcon from "@mui/icons-material/Numbers";
-
+import { setUser } from "../../features/user/userSlice";
+import { useSelector } from "react-redux";
 const FireNav = styled(List)({
   "& .MuiListItemButton-root": {
     paddingLeft: 24,
@@ -37,14 +38,10 @@ const StudentList = ({ selectedStudent }) => {
     age = 18,
     id = 0,
   } = selectedStudent || {};
-
-  const {
-    visibility = "not specified",
-    email = "@gmail.com",
-    phone = "9893388277",
-  } = contact_info;
+  const { user } = useSelector((state) => state.auth);
+  const { email = "@gmail.com", phone = "9893388277" } = contact_info;
+  const visibility = user.role;
   const [open, setOpen] = useState(true);
-
   const topicName1 = coursesEnrolled[0]?.Subject || "Mathematics";
   const topicName2 = coursesEnrolled[1]?.Subject || "Physics";
   const progress1 = coursesEnrolled[0]?.progress || 10;
@@ -73,7 +70,7 @@ const StudentList = ({ selectedStudent }) => {
           },
         })}
       >
-        <Paper elevation={0} sx={{ maxWidth: 256 }}>
+        <Paper elevation={0} sx={{ maxWidth: 300 }}>
           <FireNav component="nav" disablePadding>
             <ListItemButton component="a" href="#customized-list">
               <ListItemText sx={{ my: 0, mx: 0 }}>
@@ -149,26 +146,33 @@ const StudentList = ({ selectedStudent }) => {
                   }}
                 />
               </ListItemButton>
-              {visibility == "Instructor" &&
-                open &&
-                data.map((item) => (
-                  <ListItemButton
-                    key={item.label}
-                    sx={{ py: 0, minHeight: 32, color: "rgba(255,255,255,.8)" }}
-                  >
-                    <ListItemIcon sx={{ color: "inherit" }}>
-                      {item.icon}
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={item.label}
-                      secondary={item.value}
-                      primaryTypographyProps={{
-                        fontSize: 14,
-                        fontWeight: "medium",
-                      }}
-                    />
-                  </ListItemButton>
-                ))}
+              {visibility === "Instructor" && (
+                <>
+                  {open &&
+                    data.map((item) => (
+                      <ListItemButton
+                        key={item.label}
+                        sx={{
+                          py: 0,
+                          minHeight: 32,
+                          color: "rgba(255,255,255,.8)",
+                        }}
+                      >
+                        <ListItemIcon sx={{ color: "inherit" }}>
+                          {item.icon}
+                        </ListItemIcon>
+                        <ListItemText
+                          primary={item.label}
+                          secondary={item.value}
+                          primaryTypographyProps={{
+                            fontSize: 14,
+                            fontWeight: "medium",
+                          }}
+                        />
+                      </ListItemButton>
+                    ))}
+                </>
+              )}
               <Divider />
               <span className="ml-5">Enrolled Courses</span>
               <div className=" ml-5 flex items-center justify-center">

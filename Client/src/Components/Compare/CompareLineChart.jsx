@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import * as d3 from "d3";
 
-const CompareBar = ({ compareData }) => {
+const CompareLineChart = ({ compareData }) => {
   const chartRef = useRef();
   const tooltipRef = useRef();
   const [viewMode, setViewMode] = useState("month");
@@ -174,4 +174,4 @@ const CompareBar = ({ compareData }) => {
   );
 };
 
-export default CompareBar;
+export default CompareLineChart;

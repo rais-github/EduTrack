@@ -11,13 +11,15 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { useNavigate } from "react-router-dom";
 import ProfileModal from "../../subComponents/ProfileModal";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setUser } from "../../../features/user/userSlice";
 
 export default function PrimarySearchAppBar() {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const logoutHandler = () => {
     localStorage.removeItem("userInfo");
+    dispatch(setUser(null));
     setAnchorElUser(null);
     setAnchorEl(null);
     handleMobileMenuClose();

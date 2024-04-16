@@ -6,7 +6,7 @@ import Topicwise from "./Topicwise/Topicwise";
 import TopicPieChart from "./Topicwise/TopicPieChart";
 import ActionAreaCard from "./subComponents/ActionAreaCard";
 import Compare from "./Compare/Compare";
-import CompareBar from "./Compare/CompareBar";
+import CompareLineChart from "./Compare/CompareLineChart";
 import CompareDropCard from "../Components/Compare/CompareDropCard";
 import Student from "./Student/Student";
 import StudentList from "./Student/StudentList";
@@ -22,7 +22,7 @@ export {
   Topicwise,
   TopicPieChart,
   Compare,
-  CompareBar,
+  CompareLineChart,
   CompareDropCard,
   StudentTable,
 };

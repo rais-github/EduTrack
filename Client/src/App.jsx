@@ -16,7 +16,9 @@ function App() {
         <Route path={"/compare"} element={<Compare />} />
         <Route path={"/students"} element={<Student />} />
       </Routes>
-      {user && <Slides />}
+      <div className=" fixed bottom-0 left-1/2 transform -translate-x-1/2 ">
+        {user && <Slides />}
+      </div>{" "}
     </div>
   );
 }

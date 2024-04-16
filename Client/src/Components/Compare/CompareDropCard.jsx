@@ -37,7 +37,7 @@ export default function CompareDropCard({ compareData }) {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -57,6 +57,7 @@ export default function CompareDropCard({ compareData }) {
         component="img"
         image="../../../public/bg-topicwise.jpg"
         alt="Courses Comparison"
+        sx={{ height: "10rem" }}
       />
 
       <CardContent>

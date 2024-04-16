@@ -1,85 +1,59 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Grid, Paper, Typography } from "@mui/material";
-import { motion } from "framer-motion";
-
-const SlideBox = ({ active, onClick, children }) => {
-  return (
-    <Paper
-      component={motion.div}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      onClick={onClick}
-      style={{
-        cursor: "pointer",
-        borderRadius: "8px",
-        padding: "10px 20px",
-        margin: "10px",
-        backgroundColor: active ? "#4CAF50" : "#F5F5F5",
-        color: active ? "#ffffff" : "#333",
-        boxShadow: active ? "0px 5px 15px rgba(76, 175, 80, 0.3)" : "none",
-        transition: "all 0.3s ease",
-      }}
-    >
-      <Typography variant="body1" align="center">
-        {children}
-      </Typography>
-    </Paper>
-  );
-};
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Slides = () => {
-  const navigate = useNavigate();
-  const [activeSlide, setActiveSlide] = useState(null);
+  const [activeSlide, setActiveSlide] = useState("/dashboard");
 
   const handleSlideClick = (path) => {
     setActiveSlide(path);
-    navigate(path);
   };
 
   return (
-    <div
-      style={{
-        position: "fixed",
-        bottom: "20px",
-        width: "100%",
-        textAlign: "center",
-      }}
-    >
-      <Grid container justifyContent="center" spacing={6}>
-        <Grid item>
-          <SlideBox
-            active={activeSlide === "/dashboard"}
-            onClick={() => handleSlideClick("/dashboard")}
-          >
-            Dashboard
-          </SlideBox>
-        </Grid>
-        <Grid item>
-          <SlideBox
-            active={activeSlide === "/topicwise"}
-            onClick={() => handleSlideClick("/topicwise")}
-          >
-            Topic Wise
-          </SlideBox>
-        </Grid>
-        <Grid item>
-          <SlideBox
-            active={activeSlide === "/compare"}
-            onClick={() => handleSlideClick("/compare")}
-          >
-            Compare
-          </SlideBox>
-        </Grid>
-        <Grid item>
-          <SlideBox
-            active={activeSlide === "/students"}
-            onClick={() => handleSlideClick("/students")}
-          >
-            Students
-          </SlideBox>
-        </Grid>
-      </Grid>
+    <div className="flex max-w-[600px] justify-between mx-auto pb-2 bg-transparent gap-3">
+      <Link
+        to="/dashboard"
+        className={`rounded px-2 py-1 ${
+          activeSlide === "/dashboard"
+            ? "bg-green-500 text-white"
+            : " bg-gray-200 text-black"
+        }`}
+        onClick={() => handleSlideClick("/dashboard")}
+      >
+        Dashboard
+      </Link>
+      <Link
+        to="/topicwise"
+        className={`rounded px-2 py-1 ${
+          activeSlide === "/topicwise"
+            ? "bg-green-500 text-white"
+            : " bg-gray-200    text-black"
+        }`}
+        onClick={() => handleSlideClick("/topicwise")}
+      >
+        Topic Wise
+      </Link>
+      <Link
+        to="/compare"
+        className={`rounded px-2 py-1 ${
+          activeSlide === "/compare"
+            ? "bg-green-500 text-white"
+            : "bg-gray-200 text-black"
+        }`}
+        onClick={() => handleSlideClick("/compare")}
+      >
+        Compare
+      </Link>
+      <Link
+        to="/students"
+        className={`rounded px-2 py-1 ${
+          activeSlide === "/students"
+            ? "bg-green-500 text-white"
+            : "bg-gray-200 text-black"
+        }`}
+        onClick={() => handleSlideClick("/students")}
+      >
+        Students
+      </Link>
     </div>
   );
 };
