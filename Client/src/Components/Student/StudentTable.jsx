@@ -37,15 +37,16 @@ export default function StudentTable({ students }) {
 
   return (
     <div className="flex flex-wrap gap-7 justify-between items-center ">
-      <div className="flex justify-center items-center p-4 w-full sm:w-auto">
+      <div className="sm:ml-5 md:ml-8 ">
         {/* Pass the selected student to StudentList */}
         <StudentList selectedStudent={selectedStudent} />
       </div>
       <div
-        className="m-4  w-full sm:w-auto"
+        className="m-4"
         style={{
           height: 550,
-          width: "70rem",
+          width: "100%", // Set initial width to 100%
+          maxWidth: "70rem", // Set maximum width for larger screens
           backgroundColor: "#f9f9f9",
         }}
       >

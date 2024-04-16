@@ -56,7 +56,7 @@ const StudentList = ({ selectedStudent }) => {
   ];
 
   return (
-    <Box sx={{ display: "flex", flexBasis: 1 }}>
+    <Box sx={{ display: "flex" }}>
       <ThemeProvider
         theme={createTheme({
           components: {

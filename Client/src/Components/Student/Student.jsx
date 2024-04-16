@@ -23,15 +23,18 @@ const Student = () => {
 
   return (
     <div
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        minHeight: "100vh",
-      }}
+      className="bg-cover bg-center bg-no-repeat min-h-screen"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <StudentTable students={students} />
+      <Container maxWidth="xl">
+        <Grid container spacing={1}>
+          <Grid item xs={12}>
+            <div style={{ overflowX: "auto" }}>
+              <StudentTable students={students} />
+            </div>
+          </Grid>
+        </Grid>
+      </Container>
     </div>
   );
 };
