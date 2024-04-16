@@ -1,30 +1,18 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
-import { styled, ThemeProvider, createTheme } from "@mui/material/styles";
-import Divider from "@mui/material/Divider";
+import Paper from "@mui/material/Paper";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import Paper from "@mui/material/Paper";
-import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
-import ArrowRight from "@mui/icons-material/ArrowRight";
-import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
-import Home from "@mui/icons-material/Home";
-import Settings from "@mui/icons-material/Settings";
-import People from "@mui/icons-material/People";
-import PermMedia from "@mui/icons-material/PermMedia";
-import Dns from "@mui/icons-material/Dns";
-import Public from "@mui/icons-material/Public";
-
-const data = [
-  { icon: <People />, label: "Authentication" },
-  { icon: <Dns />, label: "Database" },
-  { icon: <PermMedia />, label: "Storage" },
-  { icon: <Public />, label: "Hosting" },
-];
+import Divider from "@mui/material/Divider";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { styled, ThemeProvider, createTheme } from "@mui/material/styles";
+import CircularProgressWithLabel from "../subComponents/CircularProgressWithLabel";
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
+import NumbersIcon from "@mui/icons-material/Numbers";
 
 const FireNav = styled(List)({
   "& .MuiListItemButton-root": {
@@ -40,10 +28,35 @@ const FireNav = styled(List)({
   },
 });
 
-export default function StudentList() {
-  const [open, setOpen] = React.useState(true);
+const StudentList = ({ selectedStudent }) => {
+  const {
+    firstName = "John",
+    lastName = "Doe",
+    coursesEnrolled = [],
+    contact_info = {},
+    age = 18,
+    id = 0,
+  } = selectedStudent || {};
+
+  const {
+    visibility = "not specified",
+    email = "@gmail.com",
+    phone = "9893388277",
+  } = contact_info;
+  const [open, setOpen] = useState(true);
+
+  const topicName1 = coursesEnrolled[0]?.Subject || "Mathematics";
+  const topicName2 = coursesEnrolled[1]?.Subject || "Physics";
+  const progress1 = coursesEnrolled[0]?.progress || 10;
+  const progress2 = coursesEnrolled[1]?.progress || 10;
+
+  const data = [
+    { icon: <AlternateEmailIcon />, label: "Email", value: email },
+    { icon: <PhoneIphoneIcon />, label: "Phone", value: phone },
+  ];
+
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", flexBasis: 1 }}>
       <ThemeProvider
         theme={createTheme({
           components: {
@@ -55,7 +68,7 @@ export default function StudentList() {
           },
           palette: {
             mode: "dark",
-            primary: { main: "rgb(102, 157, 246)" },
+            primary: { main: "rgb(200, 157, 246)" },
             background: { paper: "rgb(5, 30, 52)" },
           },
         })}
@@ -63,10 +76,12 @@ export default function StudentList() {
         <Paper elevation={0} sx={{ maxWidth: 256 }}>
           <FireNav component="nav" disablePadding>
             <ListItemButton component="a" href="#customized-list">
-              <ListItemIcon sx={{ fontSize: 20 }}>🔥</ListItemIcon>
+              <ListItemText sx={{ my: 0, mx: 0 }}>
+                <span style={{ color: "white" }}>{id}</span>
+              </ListItemText>
               <ListItemText
                 sx={{ my: 0 }}
-                primary="Firebash"
+                primary={`${firstName} ${lastName}`}
                 primaryTypographyProps={{
                   fontSize: 20,
                   fontWeight: "medium",
@@ -74,14 +89,15 @@ export default function StudentList() {
                 }}
               />
             </ListItemButton>
+
             <Divider />
             <ListItem component="div" disablePadding>
               <ListItemButton sx={{ height: 56 }}>
                 <ListItemIcon>
-                  <Home color="primary" />
+                  <NumbersIcon color="primary" />
                 </ListItemIcon>
                 <ListItemText
-                  primary="Project Overview"
+                  primary={`Age: ${age}`}
                   primaryTypographyProps={{
                     color: "primary",
                     fontWeight: "medium",
@@ -89,42 +105,6 @@ export default function StudentList() {
                   }}
                 />
               </ListItemButton>
-              <Tooltip title="Project Settings">
-                <IconButton
-                  size="large"
-                  sx={{
-                    "& svg": {
-                      color: "rgba(255,255,255,0.8)",
-                      transition: "0.2s",
-                      transform: "translateX(0) rotate(0)",
-                    },
-                    "&:hover, &:focus": {
-                      bgcolor: "unset",
-                      "& svg:first-of-type": {
-                        transform: "translateX(-4px) rotate(-20deg)",
-                      },
-                      "& svg:last-of-type": {
-                        right: 0,
-                        opacity: 1,
-                      },
-                    },
-                    "&::after": {
-                      content: '""',
-                      position: "absolute",
-                      height: "80%",
-                      display: "block",
-                      left: 0,
-                      width: "1px",
-                      bgcolor: "divider",
-                    },
-                  }}
-                >
-                  <Settings />
-                  <ArrowRight
-                    sx={{ position: "absolute", right: 4, opacity: 0 }}
-                  />
-                </IconButton>
-              </Tooltip>
             </ListItem>
             <Divider />
             <Box
@@ -144,14 +124,14 @@ export default function StudentList() {
                 }}
               >
                 <ListItemText
-                  primary="Build"
+                  primary="Private Credentials"
                   primaryTypographyProps={{
                     fontSize: 15,
                     fontWeight: "medium",
                     lineHeight: "20px",
                     mb: "2px",
                   }}
-                  secondary="Authentication, Firestore Database, Realtime Database, Storage, Hosting, Functions, and Machine Learning"
+                  secondary="Email, Phone, Enrolled Courses, Course Progress"
                   secondaryTypographyProps={{
                     noWrap: true,
                     fontSize: 12,
@@ -160,16 +140,17 @@ export default function StudentList() {
                   }}
                   sx={{ my: 0 }}
                 />
-                <KeyboardArrowDown
+                <KeyboardArrowDownIcon
                   sx={{
                     mr: -1,
-                    opacity: 0,
+                    opacity: 1,
                     transform: open ? "rotate(-180deg)" : "rotate(0)",
                     transition: "0.2s",
                   }}
                 />
               </ListItemButton>
-              {open &&
+              {visibility == "Instructor" &&
+                open &&
                 data.map((item) => (
                   <ListItemButton
                     key={item.label}
@@ -180,6 +161,7 @@ export default function StudentList() {
                     </ListItemIcon>
                     <ListItemText
                       primary={item.label}
+                      secondary={item.value}
                       primaryTypographyProps={{
                         fontSize: 14,
                         fontWeight: "medium",
@@ -187,10 +169,38 @@ export default function StudentList() {
                     />
                   </ListItemButton>
                 ))}
+              <Divider />
+              <span className="ml-5">Enrolled Courses</span>
+              <div className=" ml-5 flex items-center justify-center">
+                <ListItemText
+                  primary={topicName1}
+                  secondary={<CircularProgressWithLabel value={progress1} />}
+                  primaryTypographyProps={{
+                    fontSize: 14,
+                    fontWeight: "medium",
+                  }}
+                ></ListItemText>
+                {topicName1 !== topicName2 && (
+                  <>
+                    <ListItemText
+                      primary={topicName2}
+                      secondary={
+                        <CircularProgressWithLabel value={progress2} />
+                      }
+                      primaryTypographyProps={{
+                        fontSize: 14,
+                        fontWeight: "medium",
+                      }}
+                    />
+                  </>
+                )}
+              </div>
             </Box>
           </FireNav>
         </Paper>
       </ThemeProvider>
     </Box>
   );
-}
+};
+
+export default StudentList;

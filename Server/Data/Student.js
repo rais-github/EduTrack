@@ -12,8 +12,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[25].courseTopic, progress: 0.6 },
-      { Subject: Course[28].courseTopic, progress: 0.8 },
+      { Subject: Course[25].courseTopic, progress: 60 },
+      { Subject: Course[28].courseTopic, progress: 80 },
     ],
   },
   {
@@ -28,8 +28,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[20].courseTopic, progress: 0.6 },
-      { Subject: Course[21].courseTopic, progress: 0.7 },
+      { Subject: Course[20].courseTopic, progress: 60 },
+      { Subject: Course[21].courseTopic, progress: 70 },
     ],
   },
   {
@@ -44,8 +44,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[13].courseTopic, progress: 0.5 },
-      { Subject: Course[14].courseTopic, progress: 0.6 },
+      { Subject: Course[13].courseTopic, progress: 50 },
+      { Subject: Course[14].courseTopic, progress: 60 },
     ],
   },
   {
@@ -60,8 +60,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[12].courseTopic, progress: 0.3 },
-      { Subject: Course[13].courseTopic, progress: 0.4 },
+      { Subject: Course[12].courseTopic, progress: 30 },
+      { Subject: Course[13].courseTopic, progress: 40 },
     ],
   },
   {
@@ -76,8 +76,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[10].courseTopic, progress: 0.6 },
-      { Subject: Course[11].courseTopic, progress: 0.7 },
+      { Subject: Course[10].courseTopic, progress: 60 },
+      { Subject: Course[11].courseTopic, progress: 70 },
     ],
   },
   {
@@ -92,8 +92,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[8].courseTopic, progress: 1 },
-      { Subject: Course[9].courseTopic, progress: 0.2 },
+      { Subject: Course[8].courseTopic, progress: 100 },
+      { Subject: Course[9].courseTopic, progress: 20 },
     ],
   },
   {
@@ -108,8 +108,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[6].courseTopic, progress: 0.9 },
-      { Subject: Course[7].courseTopic, progress: 1 },
+      { Subject: Course[6].courseTopic, progress: 90 },
+      { Subject: Course[7].courseTopic, progress: 100 },
     ],
   },
   {
@@ -124,8 +124,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[4].courseTopic, progress: 0.7 },
-      { Subject: Course[5].courseTopic, progress: 0.8 },
+      { Subject: Course[4].courseTopic, progress: 70 },
+      { Subject: Course[5].courseTopic, progress: 80 },
     ],
   },
   {
@@ -140,8 +140,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[2].courseTopic, progress: 0.6 },
-      { Subject: Course[3].courseTopic, progress: 0.7 },
+      { Subject: Course[2].courseTopic, progress: 60 },
+      { Subject: Course[3].courseTopic, progress: 70 },
     ],
   },
   {
@@ -155,8 +155,8 @@ export const Student = [
       phone: "555-012-3456",
     },
     coursesEnrolled: [
-      { Subject: Course[0].courseTopic, progress: 0.5 },
-      { Subject: Course[1].courseTopic, progress: 0.6 },
+      { Subject: Course[0].courseTopic, progress: 50 },
+      { Subject: Course[1].courseTopic, progress: 60 },
     ],
     enrollment_date: new Date("2024-03-15"),
   },
@@ -172,8 +172,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[26].courseTopic, progress: 0.9 },
-      { Subject: Course[27].courseTopic, progress: 0.8 },
+      { Subject: Course[26].courseTopic, progress: 90 },
+      { Subject: Course[27].courseTopic, progress: 80 },
     ],
   },
   {
@@ -188,8 +188,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[24].courseTopic, progress: 0.7 },
-      { Subject: Course[25].courseTopic, progress: 0.6 },
+      { Subject: Course[24].courseTopic, progress: 70 },
+      { Subject: Course[25].courseTopic, progress: 60 },
     ],
   },
   {
@@ -204,8 +204,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[22].courseTopic, progress: 0.5 },
-      { Subject: Course[23].courseTopic, progress: 0.4 },
+      { Subject: Course[22].courseTopic, progress: 50 },
+      { Subject: Course[23].courseTopic, progress: 40 },
     ],
   },
   {
@@ -220,8 +220,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[20].courseTopic, progress: 0.3 },
-      { Subject: Course[21].courseTopic, progress: 0.2 },
+      { Subject: Course[20].courseTopic, progress: 30 },
+      { Subject: Course[21].courseTopic, progress: 20 },
     ],
   },
   {
@@ -236,8 +236,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[18].courseTopic, progress: 0.9 },
-      { Subject: Course[19].courseTopic, progress: 0.8 },
+      { Subject: Course[18].courseTopic, progress: 90 },
+      { Subject: Course[19].courseTopic, progress: 80 },
     ],
   },
   {
@@ -252,8 +252,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[16].courseTopic, progress: 0.7 },
-      { Subject: Course[17].courseTopic, progress: 0.6 },
+      { Subject: Course[16].courseTopic, progress: 70 },
+      { Subject: Course[17].courseTopic, progress: 60 },
     ],
   },
   {
@@ -268,8 +268,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[14].courseTopic, progress: 0.5 },
-      { Subject: Course[15].courseTopic, progress: 0.4 },
+      { Subject: Course[14].courseTopic, progress: 50 },
+      { Subject: Course[15].courseTopic, progress: 40 },
     ],
   },
   {
@@ -284,8 +284,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[12].courseTopic, progress: 0.3 },
-      { Subject: Course[13].courseTopic, progress: 0.2 },
+      { Subject: Course[12].courseTopic, progress: 30 },
+      { Subject: Course[13].courseTopic, progress: 20 },
     ],
   },
   {
@@ -300,8 +300,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[10].courseTopic, progress: 0.9 },
-      { Subject: Course[11].courseTopic, progress: 0.8 },
+      { Subject: Course[10].courseTopic, progress: 90 },
+      { Subject: Course[11].courseTopic, progress: 80 },
     ],
   },
   {
@@ -316,8 +316,8 @@ export const Student = [
     },
     enrollment_date: new Date("2024-03-15"),
     coursesEnrolled: [
-      { Subject: Course[8].courseTopic, progress: 0.7 },
-      { Subject: Course[9].courseTopic, progress: 0.6 },
+      { Subject: Course[8].courseTopic, progress: 70 },
+      { Subject: Course[9].courseTopic, progress: 60 },
     ],
   },
 ];

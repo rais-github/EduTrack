@@ -1,10 +1,13 @@
-import { StudentList, StudentTable } from "../index";
+import { StudentTable } from "../index";
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Button, Container, Grid, Typography, Box } from "@mui/material";
+import backgroundImage from "../../../public/student-bg.jpg";
+
 const Student = () => {
   const [students, setStudents] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -19,18 +22,17 @@ const Student = () => {
   }, []);
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
+    <div
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
       }}
-      width="100%"
-      bgcolor={"coral"}
     >
       <StudentTable students={students} />
-    </Box>
+    </div>
   );
 };
 
