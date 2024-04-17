@@ -75,7 +75,7 @@ const Signup = () => {
           name,
           email,
           password,
-          role, // Include role in the request body
+          role,
           pic,
         },
         config

@@ -11,20 +11,7 @@ import userRoutes from "./routes/userRoutes.js";
 dotenv.config();
 
 const PORT = process.env.PORT || 5001;
-const MONGO_URL = "mongodb://127.0.0.1:27017/EduTrack";
-
-// const store = MongoStore.create({
-//   mongoUrl: MONGO_URL,
-//   crypto: {
-//     secret: "f-17vv",
-//   },
-//   touchAfter: 24 * 3600,
-// });
-
-// store.on("error", function () {
-//   console.log("ERROR_IN_MONGO_SESSION_STORE");
-// });
-
+const MONGO_URL = process.env.ATLAS_URL || "mongodb://127.0.0.1:27017/EduTrack";
 const app = express();
 app.use(express.json());
 app.use(cors());
